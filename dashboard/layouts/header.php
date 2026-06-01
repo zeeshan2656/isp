@@ -148,6 +148,10 @@ function nav_active($page) {
             <a href="customer_payouts.php" class="sidebar-nav-item <?php echo nav_active('customer_payouts.php'); ?>">
                 <i class="bi bi-cash-coin"></i> <span class="nav-text">Customer Cashouts</span>
             </a>
+
+            <a href="downloads.php" class="sidebar-nav-item <?php echo nav_active('downloads.php'); ?>">
+                <i class="bi bi-phone"></i> <span class="nav-text">Mobile APK Center</span>
+            </a>
         </div>
         
         <div class="d-flex flex-column gap-1">
