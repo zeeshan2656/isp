@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ProviderApiService {
   // Update this to your Hostinger deployment URL in production (e.g. 'https://yourdomain.com')
-  static const String baseUrl = 'http://10.0.2.2/ISP'; // Localhost loopback alias for Android Emulator
+  static const String baseUrl = 'https://nayanet.freehub.live'; // Live Hostinger server endpoint
   
   static const String tokenKey = 'provider_jwt_token';
   static const String companyKey = 'provider_company_name';
