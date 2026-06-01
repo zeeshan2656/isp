@@ -1,0 +1,783 @@
+/* ==========================================================================
+   Multi-Tenant ISP SaaS - Custom Design Tokens & Styling
+   Theme: Obsidian Premium Dark / Cyberpunk Minimalist
+   Fonts: Outfit (Headers), Inter (Body text)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-base: #080B11;
+    --bg-surface: #0E131F;
+    --bg-surface-elevated: #151C2C;
+    --primary: #6366F1;
+    --primary-hover: #4F46E5;
+    --primary-glow: rgba(99, 102, 241, 0.25);
+    --secondary: #A855F7;
+    --accent: #06B6D4;
+    
+    --text-primary: #F3F4F6;
+    --text-muted: #CBD5E1; /* Elevated brightness for perfect tagline contrast */
+    --text-dim: #94A3B8;   /* Elevated contrast for secondary labels */
+    
+    --border-color: rgba(255, 255, 255, 0.07);
+    --border-hover: rgba(255, 255, 255, 0.15);
+    
+    --success: #10B981;
+    --success-soft: rgba(16, 185, 129, 0.12);
+    --warning: #F59E0B;
+    --warning-soft: rgba(245, 158, 11, 0.12);
+    --danger: #EF4444;
+    --danger-soft: rgba(239, 68, 68, 0.12);
+    --info: #3B82F6;
+    --info-soft: rgba(59, 130, 246, 0.12);
+}
+
+/* Base resets & font configurations */
+body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+}
+
+/* Global Bootstrap overrides for readable text contrast on dark background */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+.text-dim {
+    color: var(--text-dim) !important;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    display: flex;         /* Turn headings into flex containers */
+    align-items: center;   /* Perfectly centers icons and text vertically */
+    flex-wrap: wrap;       /* Safeguards wrap support on mobile screens */
+}
+
+h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
+    display: inline-flex;  /* Ensure the icon inner bounds are vertically centered */
+    align-items: center;
+}
+
+
+/* Glassmorphism & Surface Design */
+.glass-panel {
+    background: rgba(14, 19, 31, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.glass-card {
+    background: rgba(14, 19, 31, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(99, 102, 241, 0.05);
+}
+
+/* Dynamic Buttons */
+.btn-primary-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary-gradient:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45), 0 0 10px rgba(168, 85, 247, 0.2);
+    color: #FFFFFF;
+}
+
+.btn-dark-glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.btn-dark-glass:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-hover);
+    color: #FFFFFF;
+}
+
+/* Text Gradients */
+.text-gradient {
+    background: linear-gradient(135deg, #FFFFFF 30%, #9CA3AF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Beautiful Inputs */
+.form-control, .form-select {
+    background-color: rgba(8, 11, 17, 0.6);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary) !important;
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    transition: all 0.25s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--bg-surface);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.form-control::placeholder {
+    color: var(--text-dim);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-surface-elevated);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-dim);
+}
+
+/* Navigation System Styles */
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.03em;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted) !important;
+    transition: color 0.25s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #FFFFFF !important;
+}
+
+/* Expiring and Alert Visual Pulses */
+@keyframes pulse-danger {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+@keyframes pulse-warning {
+    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.danger-pulse {
+    animation: pulse-danger 2s infinite;
+    border: 1px solid rgba(239, 68, 68, 0.5) !important;
+    background: rgba(239, 68, 68, 0.15) !important;
+}
+
+.warning-pulse {
+    animation: pulse-warning 2s infinite;
+    border: 1px solid rgba(245, 158, 11, 0.5) !important;
+    background: rgba(245, 158, 11, 0.15) !important;
+}
+
+/* Dashboard Sidebar Styling */
+.sidebar-panel {
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-color);
+    min-height: 100vh;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.48rem 0.85rem; /* Reduced from 0.75rem 1.25rem for Slack-like density */
+    color: var(--text-dim);
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 0.18rem 0.6rem; /* Reduced gaps */
+    font-size: 0.88rem; /* Smaller typography */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.sidebar-nav-item:hover, .sidebar-nav-item.active {
+    background: rgba(99, 102, 241, 0.08) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(99, 102, 241, 0.12) !important;
+}
+
+.sidebar-nav-item i {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+}
+
+.sidebar-nav-item:hover i, .sidebar-nav-item.active i {
+    color: var(--primary) !important;
+}
+
+.dashboard-content-wrapper {
+    margin-left: 260px;
+    padding: 2rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Collapsed state modifier classes */
+.sidebar-panel.collapsed {
+    width: 70px !important;
+}
+
+.sidebar-panel.collapsed .brand-text, 
+.sidebar-panel.collapsed .nav-text, 
+.sidebar-panel.collapsed .sidebar-header-badge,
+.sidebar-panel.collapsed .sidebar-section-title,
+.sidebar-panel.collapsed .sidebar-workspace-label {
+    display: none !important;
+}
+
+.sidebar-panel.collapsed .sidebar-nav-item {
+    justify-content: center;
+    padding: 0.6rem 0;
+    margin: 0.2rem 0.5rem;
+    gap: 0;
+}
+
+.sidebar-panel.collapsed .sidebar-nav-item i {
+    font-size: 1.25rem;
+}
+
+.sidebar-panel.collapsed .navbar-brand {
+    justify-content: center !important;
+}
+
+.dashboard-content-wrapper.expanded {
+    margin-left: 70px !important;
+}
+
+/* Instant-load anti-flicker states mapped to documentElement selector */
+html.sidebar-init-collapsed .sidebar-panel {
+    width: 70px !important;
+}
+
+html.sidebar-init-collapsed .brand-text, 
+html.sidebar-init-collapsed .nav-text, 
+html.sidebar-init-collapsed .sidebar-header-badge,
+html.sidebar-init-collapsed .sidebar-section-title,
+html.sidebar-init-collapsed .sidebar-workspace-label {
+    display: none !important;
+}
+
+html.sidebar-init-collapsed .sidebar-nav-item {
+    justify-content: center;
+    padding: 0.6rem 0;
+    margin: 0.2rem 0.5rem;
+    gap: 0;
+}
+
+html.sidebar-init-collapsed .sidebar-nav-item i {
+    font-size: 1.25rem;
+}
+
+html.sidebar-init-collapsed .navbar-brand {
+    justify-content: center !important;
+}
+
+html.sidebar-init-collapsed .dashboard-content-wrapper {
+    margin-left: 70px !important;
+}
+
+/* Semi-transparent backdrop overlay for mobile */
+.sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99;
+    display: none;
+    transition: opacity 0.25s ease;
+}
+
+.sidebar-backdrop.show {
+    display: block;
+}
+
+/* Toggle Collapse Button Styles */
+.toggle-sidebar-btn {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-dim);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1;
+}
+
+.toggle-sidebar-btn i {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-sidebar-btn:hover {
+    color: #FFFFFF;
+    background: rgba(255,255,255,0.08);
+    border-color: var(--border-hover);
+}
+
+/* Rotate chevron icon when sidebar is collapsed */
+.sidebar-panel.collapsed .toggle-sidebar-btn i,
+.super-admin-sidebar.collapsed .toggle-sidebar-btn i {
+    transform: rotate(180deg);
+}
+
+/* Sidebar scroll for overflow content */
+.sidebar-panel, .super-admin-sidebar, .affiliate-sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-surface-elevated) transparent;
+}
+
+/* Active nav item left-edge glow accent */
+.sidebar-nav-item.active {
+    position: relative;
+}
+
+.sidebar-nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: var(--primary);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Collapsed tooltip hint for icons (native title attr) */
+.sidebar-panel.collapsed .sidebar-nav-item {
+    position: relative;
+}
+
+/* Premium KPI Analytics Cards */
+.kpi-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+}
+
+.kpi-card.kpi-success::before { background: var(--success); }
+.kpi-card.kpi-danger::before { background: var(--danger); }
+.kpi-card.kpi-warning::before { background: var(--warning); }
+.kpi-card.kpi-info::before { background: var(--info); }
+
+.kpi-icon {
+    font-size: 2rem;
+    opacity: 0.15;
+    color: #FFFFFF;
+}
+
+/* Premium Tables */
+.table-responsive-glass {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-surface);
+}
+
+.table-glass {
+    margin-bottom: 0;
+    background-color: transparent !important;
+}
+
+.table-glass th {
+    background: rgba(255, 255, 255, 0.02) !important;
+    color: var(--text-muted);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.25rem;
+}
+
+.table-glass td {
+    color: var(--text-primary);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+    background-color: transparent !important;
+}
+
+.table-glass tr:last-child td {
+    border-bottom: none;
+}
+
+.table-glass tr:hover td {
+    background-color: rgba(255, 255, 255, 0.015) !important;
+}
+
+/* Pagination Styles */
+.pagination {
+    margin-bottom: 0;
+    gap: 0.25rem;
+}
+
+.page-link {
+    background-color: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-muted) !important;
+    border-radius: 6px !important;
+    padding: 0.5rem 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.page-link:hover {
+    background-color: var(--bg-surface-elevated) !important;
+    color: #FFFFFF !important;
+    border-color: var(--border-hover) !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary) !important;
+    color: #FFFFFF !important;
+    border-color: var(--primary) !important;
+}
+
+.page-item.disabled .page-link {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Bootstrap Modal z-index overrides — ensure modals always render above admin sidebar (z-index: 1000) */
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+.modal {
+    z-index: 1055 !important;
+}
+
+/* Collapsible sidebar for responsive design */
+@media (max-width: 991.98px) {
+    .sidebar-panel {
+        left: -260px;
+        z-index: 1001;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .sidebar-panel.show {
+        left: 0;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5), 0 0 60px rgba(0,0,0,0.3);
+    }
+    
+    .dashboard-content-wrapper {
+        margin-left: 0;
+        padding: 1.25rem;
+    }
+    
+    /* Hide collapse toggle button on mobile (use hamburger instead) */
+    .toggle-sidebar-btn {
+        display: none !important;
+    }
+    
+    /* Disable collapsed state on mobile */
+    .sidebar-panel.collapsed {
+        width: 260px !important;
+    }
+    .sidebar-panel.collapsed .brand-text,
+    .sidebar-panel.collapsed .nav-text,
+    .sidebar-panel.collapsed .sidebar-header-badge,
+    .sidebar-panel.collapsed .sidebar-section-title,
+    .sidebar-panel.collapsed .sidebar-workspace-label {
+        display: initial !important;
+    }
+    .sidebar-panel.collapsed .sidebar-nav-item {
+        justify-content: flex-start;
+        padding: 0.48rem 0.85rem;
+        margin: 0.18rem 0.6rem;
+        gap: 0.75rem;
+    }
+    .sidebar-panel.collapsed .sidebar-nav-item i {
+        font-size: 1.05rem;
+    }
+    .dashboard-content-wrapper.expanded {
+        margin-left: 0 !important;
+    }
+}
+
+/* ==========================================================================
+   GLOBAL HIGH-CONTRAST & SHARP FONTS ON ALL WHITE / LIGHT BACKGROUND ELEMENTS
+   Applies to all white sheets, printed ledgers, billing cards, and light templates
+   ========================================================================== */
+
+/* 1. Base Container Color Force */
+.bg-white,
+.bg-white *,
+#printableReportSheet,
+#printableReportSheet *,
+#printableInvoiceCard,
+#printableInvoiceCard *,
+#ledger-printable-sheet,
+#ledger-printable-sheet * {
+    background-color: #FFFFFF !important;
+    color: #111111 !important; /* Sharp pure Black body text */
+}
+
+/* 2. Enforce primary heading colors (Deep Royal Blue) */
+.bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6,
+#printableReportSheet h1, #printableReportSheet h2, #printableReportSheet h3, #printableReportSheet h4, #printableReportSheet h5, #printableReportSheet h6,
+#printableInvoiceCard h1, #printableInvoiceCard h2, #printableInvoiceCard h3, #printableInvoiceCard h4, #printableInvoiceCard h5, #printableInvoiceCard h6,
+#ledger-printable-sheet h1, #ledger-printable-sheet h2, #ledger-printable-sheet h3, #ledger-printable-sheet h4, #ledger-printable-sheet h5, #ledger-printable-sheet h6 {
+    color: #1E3A8A !important; /* Sharp Royal Blue */
+    font-weight: 800 !important;
+}
+
+/* 3. Eliminate dim/grey text-muted and text-dim colors completely on white backgrounds */
+.bg-white .text-muted,
+.bg-white .text-dim,
+#printableReportSheet .text-muted,
+#printableReportSheet .text-dim,
+#printableInvoiceCard .text-muted,
+#printableInvoiceCard .text-dim,
+#ledger-printable-sheet .text-muted,
+#ledger-printable-sheet .text-dim {
+    color: #1E293B !important; /* Sharp Slate Charcoal (Highly visible) */
+    font-weight: 600 !important;
+}
+
+/* 4. Correct text-white elements (which would be invisible on white backgrounds) */
+.bg-white .text-white,
+#printableReportSheet .text-white,
+#printableInvoiceCard .text-white,
+#ledger-printable-sheet .text-white {
+    color: #0F172A !important; /* Slate 900 Black */
+    font-weight: 700 !important;
+}
+
+/* 5. Force sharp values on primary details, paragraphs, spans, small, em, strong */
+.bg-white p, .bg-white span, .bg-white small, .bg-white strong, .bg-white li, .bg-white label, .bg-white em,
+#printableReportSheet p, #printableReportSheet span, #printableReportSheet small, #printableReportSheet strong, #printableReportSheet li, #printableReportSheet label, #printableReportSheet em,
+#printableInvoiceCard p, #printableInvoiceCard span, #printableInvoiceCard small, #printableInvoiceCard strong, #printableInvoiceCard li, #printableInvoiceCard label, #printableInvoiceCard em,
+#ledger-printable-sheet p, #ledger-printable-sheet span, #ledger-printable-sheet small, #ledger-printable-sheet strong, #ledger-printable-sheet li, #ledger-printable-sheet label, #ledger-printable-sheet em {
+    color: #1F2937 !important; /* Slate 800 */
+}
+
+/* 6. Enforce strong / bold tags to be pure black */
+.bg-white strong,
+#printableReportSheet strong,
+#printableInvoiceCard strong,
+#ledger-printable-sheet strong {
+    color: #111111 !important;
+    font-weight: 700 !important;
+}
+
+/* 7. Enhanced contrast for Bootstrap .bg-light boxes */
+.bg-white .bg-light,
+#printableReportSheet .bg-light,
+#printableInvoiceCard .bg-light,
+#ledger-printable-sheet .bg-light {
+    background-color: #F8FAFC !important; /* Clean light slate background */
+    border: 2px solid #64748B !important; /* Slate 500 border line */
+    color: #111111 !important;
+}
+
+.bg-white .bg-light *,
+#printableReportSheet .bg-light *,
+#printableInvoiceCard .bg-light *,
+#ledger-printable-sheet .bg-light * {
+    color: #1E293B !important; /* Sharp slate grey */
+}
+
+.bg-white .bg-light .text-muted,
+#printableReportSheet .bg-light .text-muted,
+#printableInvoiceCard .bg-light .text-muted,
+#ledger-printable-sheet .bg-light .text-muted {
+    color: #312E81 !important; /* Deep Royal Indigo */
+    font-weight: 700 !important;
+}
+
+/* 8. Global High-Contrast Alert Colors (Emerald Green, Crimson Red, Dark Amber) */
+.bg-white .text-success,
+#printableReportSheet .text-success,
+#printableInvoiceCard .text-success,
+#ledger-printable-sheet .text-success {
+    color: #16A34A !important; /* Sharp Emerald Green */
+    font-weight: 700 !important;
+}
+
+.bg-white .text-danger,
+#printableReportSheet .text-danger,
+#printableInvoiceCard .text-danger,
+#ledger-printable-sheet .text-danger {
+    color: #DC2626 !important; /* Sharp Crimson Red */
+    font-weight: 700 !important;
+}
+
+.bg-white .text-warning,
+#printableReportSheet .text-warning,
+#printableInvoiceCard .text-warning,
+#ledger-printable-sheet .text-warning {
+    color: #D97706 !important; /* Sharp Amber */
+    font-weight: 700 !important;
+}
+
+.bg-white .text-info,
+#printableReportSheet .text-info,
+#printableInvoiceCard .text-info,
+#ledger-printable-sheet .text-info {
+    color: #1D4ED8 !important; /* Sharp Dark Blue */
+    font-weight: 700 !important;
+}
+
+/* 9. Enforce primary brand color overrides (e.g. invoice references) */
+.bg-white [style*="color: var(--primary)"],
+#printableReportSheet [style*="color: var(--primary)"],
+#printableInvoiceCard [style*="color: var(--primary)"],
+#ledger-printable-sheet [style*="color: var(--primary)"] {
+    color: #4F46E5 !important; /* Solid Royal Indigo */
+    font-weight: 700 !important;
+}
+
+/* 10. Direct table overrides for readable grids */
+.bg-white table,
+#printableReportSheet table,
+#printableInvoiceCard table,
+#ledger-printable-sheet table {
+    border: 2px solid #475569 !important;
+    background-color: #FFFFFF !important;
+}
+
+.bg-white th, .bg-white td,
+#printableReportSheet th, #printableReportSheet td,
+#printableInvoiceCard th, #printableInvoiceCard td,
+#ledger-printable-sheet th, #ledger-printable-sheet td {
+    border: 1px solid #64748B !important; /* Slate 500 lines */
+    color: #111111 !important;
+    font-weight: 500 !important;
+    padding: 0.75rem !important;
+}
+
+.bg-white thead th,
+#printableReportSheet thead th,
+#printableInvoiceCard thead th,
+#ledger-printable-sheet thead th {
+    background-color: #EFF6FF !important; /* Ice Blue */
+    color: #1E3A8A !important;
+    font-weight: 800 !important;
+    border: 2px solid #475569 !important;
+}
+
+/* 11. Global Print-Layout Color Sharpness */
+@media print {
+    body, html, main, .content, .container, .row, .col, div, section, article {
+        background-color: #FFFFFF !important;
+        color: #111111 !important;
+    }
+    
+    /* Force every text color to be fully visible and sharp */
+    h1, h2, h3, h4, h5, h6 {
+        color: #1E3A8A !important;
+    }
+    
+    p, span, small, strong, td, th, li, a, em {
+        color: #111111 !important;
+    }
+    
+    .text-muted, .text-dim {
+        color: #374151 !important;
+    }
+    
+    .text-success {
+        color: #16A34A !important;
+    }
+    
+    .text-danger {
+        color: #DC2626 !important;
+    }
+    
+    .text-warning {
+        color: #D97706 !important;
+    }
+    
+    table {
+        border: 2px solid #475569 !important;
+        background-color: #FFFFFF !important;
+    }
+    
+    th, td {
+        border: 1px solid #64748B !important;
+        color: #111111 !important;
+    }
+    
+    thead th {
+        background-color: #EFF6FF !important;
+        color: #1E3A8A !important;
+    }
+}
+

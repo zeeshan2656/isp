@@ -1,0 +1,20 @@
+name: netpulse_provider_app
+description: NetPulse Multi-Tenant ISP Management Mobile Workspace Application.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0 # High-speed API client communication
+  shared_preferences: ^2.2.0 # Secure local storage caching for Tenant JWT tokens
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
